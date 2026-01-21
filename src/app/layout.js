@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           <MouseGlow />
           <Navbar />
           <Cursor />
-          <Noise />
+          {/* <Noise /> */}
           <Footer />
           {children}
         </ThemeProvider>
