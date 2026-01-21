@@ -95,7 +95,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full px-4 sm:px-6 lg:px-8 py-4 relative z-50">
+    <header className="w-full px-4 sm:px-10 lg:px-8 py-4 relative z-50">
       <div className="mx-auto max-w-7xl">
         
         {/* TOP BAR */}
