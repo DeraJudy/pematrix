@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
-// import Cursor from "@/components/Cursor";
 import MouseGlow from "@/components/Mouse";
 import Footer from "@/components/Footer";
 
@@ -34,7 +33,6 @@ export default function RootLayout({ children }) {
         >
           <MouseGlow />
           <Navbar />
-          {/* <Cursor /> */}
           {/* <Noise /> */}
           {children}
           <Footer />

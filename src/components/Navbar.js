@@ -1,79 +1,4 @@
-// "use client";
-// import React from 'react'
-// import Link from "next/link";
-// import ThemeToggle from "./ThemeToggle";
-
-// const Navbar = () => {
-//   return (
-//     <div className='flex items-center justify-between w-full py-4 px-6 '>
-//       <nav
-//         style={{
-//           backgroundColor: "hsl(var(--secondary))",
-//           borderColor: "hsl(var(--border))",
-//         }}
-//         className='rounded-xl border flex items-center justify-between w-full px-8 py-4'>
-
-//         <a href="#" className="flex items-center gap-2">
-//           <span
-//             style={{
-//               color: "hsl(var(--primary))",
-//             }}
-//             className=" font-black text-2xl">
-//             Pematrix
-//           </span>
-//         </a>
-
-//         <div className='flex gap-6'>
-//           {["Portfolio", "About", "Contact", "Services"].map((item) => (
-//             <Link
-//               key={item}
-//               href={`/${item.toLowerCase()}`}
-//               style={{
-//                 color: "hsl(var(--muted-foreground))",
-//               }}
-              
-//               className="
-//                  relative text-sm font-bold
-//                  transition
-//                  after:absolute after:-bottom-1 after:left-0
-//                  after:h-px after:w-0
-//                  after:bg-current
-//                  after:transition-all after:duration-300
-//                  hover:after:w-full
-//                "
-//             >
-//               {item}
-//             </Link>
-//           ))}
-//         </div>
-
-//         <div className='flex items-center gap-4'>
-//           {/* Theme Toggle */}
-//           <ThemeToggle />
-
-//           <a
-//             href="#cta"
-//             onClick={() => setMobileMenuOpen(false)}
-//             className="gradient-button px-5 py-3 rounded-xl font-bold text-center"
-//             style={{
-//               backgroundColor: "hsl(var(--primary))",
-//               color: "hsl(var(--secondary))",
-//             }}
-//           >
-//             Get Started
-//           </a>
-//         </div>
-
-//       </nav>
-
-//     </div>
-//   )
-// }
-
-// export default Navbar
-
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -95,10 +20,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full px-4 sm:px-10 lg:px-8 py-4 relative z-50">
+    <header className="sticky top-0 w-full px-4 sm:px-10 lg:px-8 py-4 z-50">
       <div className="mx-auto max-w-7xl">
         
-        {/* TOP BAR */}
         <nav
           style={{
             backgroundColor: "hsl(var(--secondary))",
@@ -110,11 +34,11 @@ export default function Navbar() {
             px-6 py-4
           "
         >
-          {/* LOGO */}
+
           <Link href="/" className="flex items-center gap-2">
             <span
               style={{ color: "hsl(var(--primary))" }}
-              className="font-black text-2xl"
+              className="font-black text-3xl"
             >
               Pematrix
             </span>
@@ -142,7 +66,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* ACTIONS */}
           <div className="flex items-center gap-4">
             <ThemeToggle />
 
@@ -202,7 +125,6 @@ export default function Navbar() {
                 }}
                 className="rounded-xl border p-6 flex flex-col gap-6"
               >
-                {/* CLOSE */}
                 <div className="flex justify-end">
                   <button
                     onClick={() => setMobileOpen(false)}
