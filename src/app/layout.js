@@ -2,11 +2,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
-import Cursor from "@/components/Cursor";
-import Noise from "@/components/Noise";
+// import Cursor from "@/components/Cursor";
 import MouseGlow from "@/components/Mouse";
 import Footer from "@/components/Footer";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,22 +18,26 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Pematrix Technologies",
-  description: "Engineering systems that scale"
+  description: "Engineering systems that scale",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
           <MouseGlow />
           <Navbar />
-          <Cursor />
+          {/* <Cursor /> */}
           {/* <Noise /> */}
-          <Footer />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

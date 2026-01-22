@@ -50,11 +50,15 @@ const Footer = () => {
               style={{
                 color: "hsl(var(--primary))",
               }}
-              className="font-display text-2xl font-bold gradient-text">
+              className="  text-2xl font-bold">
                 Pematrix
               </span>
             </a>
-            <p className="text-muted-foreground mb-6 max-w-sm">
+            <p 
+            style={{
+              color: "hsl(var(--muted-foreground))",
+            }}
+            className=" mb-6 max-w-sm">
               Empowering businesses with innovative digital solutions.
               Let's build something extraordinary together.
             </p>
