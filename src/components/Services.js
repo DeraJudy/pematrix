@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCloud, FaCode, FaLightbulb, FaPalette } from "react-icons/fa";
+import { FaCloud, FaCode, FaLightbulb, FaPalette, FaWrench, FaNetworkWired, } from "react-icons/fa";
 
 // Motion helpers
 const MotionDiv = motion.create("div");
@@ -53,6 +53,16 @@ const services = [
     title: "Digital Strategy",
     description:
       "Data-driven roadmaps for digital success. We align technology initiatives with business goals for maximum impact.",
+  },
+  { 
+    icon: FaWrench, 
+    title: "Computer & Peripheral Repair", 
+    description: "Expert diagnosis and repair services for all computer hardware and peripherals. Fast turnaround, reliable fixes." 
+  }, 
+  { 
+    icon: FaNetworkWired, 
+    title: "IT Consulting & Networking", 
+    description: "Office networks, WiFi, LAN, security, and ongoing network management tailored to your business." 
   },
 ];
 
