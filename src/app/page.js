@@ -1,7 +1,8 @@
+import CallToAction from "@/components/CallToAction";
 import Hero from "@/components/Hero";
+import Process from "@/components/Process";
 import Services from "@/components/Services";
 import WhyUs from "@/components/WhyUs";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -9,6 +10,8 @@ export default function Home() {
       <Hero />
       <Services />
       <WhyUs />
+      <Process />
+      <CallToAction />
     </div>
   );
 }
