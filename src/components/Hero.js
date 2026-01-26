@@ -60,7 +60,7 @@ export default function Hero() {
     />
   )}
 
-  <div className="relative z-10 flex min-h-screen items-center justify-center px-5 sm:px-8">
+  <div className="relative z-10 flex min-h-screen items-center justify-center px-5 sm:px-8 lg:px-11">
     <div className="w-full max-w-4xl">
 
       <div className="mb-6 flex ">
