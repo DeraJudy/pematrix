@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
-import MouseGlow from "@/components/Mouse";
+// import MouseGlow from "@/components/Mouse";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
           defaultTheme="dark"
           enableSystem={false}
         >
-          <MouseGlow />
+          {/* <MouseGlow /> */}
           <Navbar />
           {/* <Noise /> */}
           {children}

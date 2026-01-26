@@ -20,7 +20,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 w-full px-4 sm:px-10 lg:px-8 py-4 z-50">
+    <header className="fixed top-0 left-0 w-full px-4 sm:px-10 lg:px-8 py-4 z-50">
       <div className="mx-auto max-w-7xl">
         
         <nav
