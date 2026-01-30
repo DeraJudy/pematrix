@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 /* =========================
    CSS VARIABLES – LIGHT MODE
    ========================= */
@@ -64,17 +60,6 @@ body {
   overflow-x: hidden;
 }
 
-
-/* html, body {
-  height: 100%;
-}
-
-body {
-  background-color: theme(colors.black);
-  color: theme(colors.white);
-  overflow-x: hidden;
-} */
-
 .noise {
   position: fixed;
   inset: 0;
@@ -83,3 +68,4 @@ body {
   pointer-events: none;
   z-index: 50;
 }
+

@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
@@ -39,7 +38,7 @@ const CallToAction = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
         >
-          {/* Badge */}
+
           <motion.p
             variants={itemVariants}
             className="flex items-center gap-2 rounded-full border px-4 py-2"
@@ -53,7 +52,6 @@ const CallToAction = () => {
             Let's Talk
           </motion.p>
 
-          {/* Text */}
           <motion.div
             variants={itemVariants}
             className="text-center mt-7"
@@ -105,11 +103,11 @@ const CallToAction = () => {
                 href="/portfolio"
                 className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg border font-bold
                 px-6 py-3 text-sm sm:px-10 sm:text-base lg:px-12 lg:py-3
-                transition duration-300 hover:bg-gray-100"
+                transition duration-300"
                 style={{
                   color: "hsl(var(--foreground))",
-                  borderColor: "hsl(var(--border))",
-                  backgroundColor: "hsl(var(--background))",
+                  borderColor: "hsl(var(--border))",  
+                 
                 }}
               >
                 View Our Work
