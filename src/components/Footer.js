@@ -30,8 +30,9 @@ const Footer = () => {
     <footer
       style={{
         borderColor: "hsl(var(--border))",
+        backgroundColor: "hsl(var(--secondary))",
       }}
-      className="pt-16 pb-8 border-t w-full px-4 md:px-12 sm:px-20 lg:px-8 py-4">
+      className="pt-16 pb-8 border-t-2 w-full px-4 md:px-12 sm:px-20 lg:px-8 py-4">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Brand */}
