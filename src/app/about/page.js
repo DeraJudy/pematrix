@@ -71,8 +71,11 @@ export default function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 gap-6 border-2 rounded-2xl p-8 bg-card/80"
-            style={{ borderColor: "hsl(var(--border))" }}
+            className="grid grid-cols-2 px-12 py-4 border-2 rounded-2xl "
+            style={{ 
+              borderColor: "hsl(var(--border))",
+              backgroundColor: "hsl(var(--card))",
+            }}
           >
             {[
               ["150+", "Projects Delivered"],
@@ -80,7 +83,7 @@ export default function About() {
               ["10+", "Years of Experience"],
               ["25+", "Team Members"],
             ].map(([value, label], i) => (
-              <div key={i}>
+              <div key={i} className="px-12 py-7">
                 <h4
                   style={{
                     color: "hsl(var(--primary))"
