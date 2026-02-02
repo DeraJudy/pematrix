@@ -71,7 +71,7 @@ export default function About() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 px-12 py-4 border-2 rounded-2xl "
+            className="grid grid-cols-2 px-6 sm:px-12 py-4 border-2 rounded-2xl "
             style={{ 
               borderColor: "hsl(var(--border))",
               backgroundColor: "hsl(var(--card))",
@@ -83,12 +83,12 @@ export default function About() {
               ["10+", "Years of Experience"],
               ["25+", "Team Members"],
             ].map(([value, label], i) => (
-              <div key={i} className="px-12 py-7">
+              <div key={i} className="py-5 px-4 sm:px-12 sm:py-7">
                 <h4
                   style={{
                     color: "hsl(var(--primary))"
                   }}
-                  className="text-4xl font-bold text-primary mb-1">{value}</h4>
+                  className="text-2xl sm:text-4xl font-bold text-primary mb-1">{value}</h4>
                 <span
                   style={{
                     color: "hsl(var(--muted-foreground))"
@@ -105,7 +105,7 @@ export default function About() {
         style={{
           backgroundColor: "hsl(var(--secondary))"
         }}
-        className="lg:py-24 px-6">
+        className="py-14 lg:py-24 px-6">
         <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10">
           {[{
             title: "Our Mission",

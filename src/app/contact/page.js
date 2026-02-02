@@ -78,7 +78,7 @@ const page = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="border-2 rounded-2xl p-6 text-center bg-card/80 hover:shadow-lg transition"
+                className="border-2 rounded-2xl py-6 px-9 text-center bg-card/80 hover:shadow-lg transition"
                 style={{ borderColor: "hsl(var(--border))" }}
               >
                 <div
@@ -110,6 +110,21 @@ const page = () => {
         </div>
 
       </div>
+
+      <div
+          style={{
+            backgroundColor: "hsl(var(--secondary))"
+          }}
+          className="py-14 lg:py-24 px-6">
+          <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+              
+          </div>
+          <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+              
+          </div>
+        </div>
 
     </main>
   )
