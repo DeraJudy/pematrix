@@ -1,8 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaCloud, FaCode, FaDatabase, FaPalette, FaShieldAlt, } from "react-icons/fa";
-import { FiSmartphone, FiTrendingUp, FiZap } from "react-icons/fi";
+import { FaCloud, FaCode, FaDatabase, FaDotCircle, FaPalette, FaShieldAlt, } from "react-icons/fa";
+import { FiCheck, FiSmartphone, FiTrendingUp, FiZap, } from "react-icons/fi";
 
 const features = [
     {
@@ -182,18 +182,17 @@ const page = () => {
                                     {feature.features.map((item, index) => (
                                         <li
                                             key={index}
-                                            className="flex items-start gap-4 text-sm leading-relaxed"
+                                            className="flex items-start gap-3 text-sm leading-relaxed"
                                             style={{ color: "hsl(var(--muted-foreground))" }}
                                         >
-                                            <span
-                                                className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
-                                                style={{ backgroundColor: "hsl(var(--primary))" }}
+                                            <FaDotCircle
+                                                className="mt-1 h-4 w-4 shrink-0"
+                                                style={{ color: "hsl(var(--primary))" }}
                                             />
                                             <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
-
 
                             </MotionDiv>
                         );
