@@ -5,7 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
-const NAV_ITEMS = ["Portfolio", "About", "Contact", "Services"];
+const NAV_ITEMS = ["About", "Services", "Projects", "Team", "Blog", "Contact"];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
