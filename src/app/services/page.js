@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FaCloud, FaCode, FaDatabase, FaDotCircle, FaPalette, FaShieldAlt, } from "react-icons/fa";
 import { FiCheck, FiSmartphone, FiTrendingUp, FiZap, } from "react-icons/fi";
 
@@ -82,7 +83,12 @@ const itemVariants = {
 
 const page = () => {
     return (
-        <main className="relative py-28 px-6 bg-secondary">
+        <main 
+            style={{
+                backgroundColor: "hsl(var(--secondary))",
+            }}
+        className="relative py-28 ">
+
             <div className="mx-auto max-w-6xl mt-24 pt-8">
 
                 <motion.div
@@ -117,7 +123,7 @@ const page = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
                 >
                     {features.map((feature) => {
                         const IconComponent = feature.icon;
@@ -201,6 +207,43 @@ const page = () => {
                 </MotionDiv>
 
             </div>
+
+            <div className="">
+                <motion.div
+                    className=" text-center py-56"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                >
+                    <h2 className="mb-3 text-3xl md:text-4xl lg:text-5xl font-bold">
+                        Ready to Start Your Project?
+                    </h2>
+                    <p
+                        style={{
+                            color: "hsl(var(--muted-foreground))",
+                        }}
+                        className="mx-auto max-w-2xl text-lg mb-10 ">
+                        Let's discuss how we can help transform your business with our expert services.
+                    </p>
+                    <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.2 }}>
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center justify-center gap-2 rounded-lg font-bold
+                            px-6 py-3 text-sm sm:px-7 sm:text-base lg:px-8 lg:py-8
+                            transition duration-300 hover:bg-gray-100"
+                            style={{
+                                color: "hsl(var(--background))",
+                                backgroundColor: "hsl(var(--primary))",
+                            }}
+                        >
+                            Get Started
+                        </Link>
+                    </motion.div>
+                </motion.div>
+            </div>
+
+
         </main>
     )
 }
