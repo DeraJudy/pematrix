@@ -87,7 +87,7 @@ const page = () => {
             style={{
                 backgroundColor: "hsl(var(--secondary))",
             }}
-        className="relative py-28 ">
+        className="relative pt-28 ">
 
             <div className="mx-auto max-w-6xl mt-24 pt-8">
 
@@ -123,7 +123,7 @@ const page = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10"
                 >
                     {features.map((feature) => {
                         const IconComponent = feature.icon;
@@ -208,9 +208,11 @@ const page = () => {
 
             </div>
 
-            <div className="">
+            <div 
+                 style={{ backgroundColor: "hsl(var(--background))" }}
+                className="">
                 <motion.div
-                    className=" text-center py-56"
+                    className=" text-center py-20"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -230,7 +232,7 @@ const page = () => {
                         <Link
                             href="/contact"
                             className="inline-flex items-center justify-center gap-2 rounded-lg font-bold
-                            px-6 py-3 text-sm sm:px-7 sm:text-base lg:px-8 lg:py-8
+                            px-6 py-3 text-sm sm:px-7 sm:text-base lg:px-8 lg:py-5
                             transition duration-300 hover:bg-gray-100"
                             style={{
                                 color: "hsl(var(--background))",
