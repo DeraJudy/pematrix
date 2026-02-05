@@ -391,9 +391,19 @@ export default function Page() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="mb-6 text-3xl md:text-4xl lg:text-6xl font-bold">
-            Get in <span className="text-primary">Touch</span>
+            Get in {" "}
+            <span 
+              style={{ 
+                color: "hsl(var(--primary))",
+              }}>
+                Touch
+            </span>
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p
+            style={{ 
+              color: "hsl(var(--muted-foreground))",
+            }} 
+            className="mx-auto max-w-2xl text-lg">
             Ready to start your next project? We'd love to hear from you.
           </p>
         </motion.div>
@@ -406,7 +416,10 @@ export default function Page() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="border rounded-2xl py-6 px-9 text-center bg-card/80"
+              className="border rounded-2xl py-6 px-9 text-center"
+              style={{ 
+                backgroundColor: "hsl(var(--card))",
+              }} 
             >
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 text-primary">
                 <value.icon className="w-7 h-7" />
@@ -421,7 +434,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="py-14 lg:py-24 px-6">
+      <div className="py-18 lg:py-24 px-6 mt-4">
         <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* FORM */}
           <motion.div
