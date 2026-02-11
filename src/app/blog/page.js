@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaCalendar, FaClock, FaUser } from "react-icons/fa";
@@ -74,16 +74,6 @@ const blogPosts = [
 const categories = ["All", "Technology", "Development", "Design", "DevOps", "Security", "Business"];
 
 const page = () => {
-
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const check = () => setIsMobile(window.innerWidth < 768);
-        check();
-        window.addEventListener("resize", check);
-        return () => window.removeEventListener("resize", check);
-    }, []);
-
     const [activeCategory, setActiveCategory] = useState("All");
 
     const filteredblogPosts =
@@ -132,16 +122,8 @@ const page = () => {
                         }}
                     >
                         <motion.article
-                            whileHover={!isMobile ? { y: -6 } : undefined}
-                            whileTap={isMobile ? { scale: 0.98 } : undefined}
-
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-
-
-                            // transition={{ type: "spring", stiffness: 120 }}
+                            whileHover={{ y: -6 }}
+                            transition={{ type: "spring", stiffness: 120 }}
                             className="group"
                         >
                             <Link href="#" className="block">
@@ -201,18 +183,17 @@ const page = () => {
                                             </p>
                                         </div>
 
-                                        <div className="flex items-center justify-between">
+                                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                                             <div className="flex items-center gap-3">
                                                 <div
-                                                    className="w-10 h-10 rounded-full flex items-center justify-center"
-                                                    style={{
-                                                        backgroundColor: "hsl(var(--primary) / 15%)",
-                                                    }}
+                                                    className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                                                    style={{ backgroundColor: "hsl(var(--primary) / 15%)" }}
                                                 >
                                                     <FaUser style={{ color: "hsl(var(--primary))" }} />
                                                 </div>
+
                                                 <span
-                                                    className="font-medium"
+                                                    className="font-medium text-sm sm:text-base"
                                                     style={{ color: "hsl(var(--foreground))" }}
                                                 >
                                                     {featuredPost.author}
@@ -220,12 +201,14 @@ const page = () => {
                                             </div>
 
                                             <span
-                                                className="flex items-center gap-2 font-semibold"
+                                                className="flex items-center gap-2 font-semibold text-sm sm:text-base transition-transform sm:hover:translate-x-1"
                                                 style={{ color: "hsl(var(--primary))" }}
                                             >
-                                                Read Article <FaArrowRight />
+                                                Read Article
+                                                <FaArrowRight className="w-4 h-4" />
                                             </span>
                                         </div>
+
                                     </div>
                                 </div>
                             </Link>
