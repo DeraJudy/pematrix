@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaCalendar, FaClock, FaUser } from "react-icons/fa";
@@ -74,6 +74,16 @@ const blogPosts = [
 const categories = ["All", "Technology", "Development", "Design", "DevOps", "Security", "Business"];
 
 const page = () => {
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
+    }, []);
+
     const [activeCategory, setActiveCategory] = useState("All");
 
     const filteredblogPosts =
@@ -115,104 +125,112 @@ const page = () => {
                 {/* Featured Post */}
                 <main className="px-10 lg:px-0">
                     <section
-                    className=" border-2 rounded-3xl overflow-hidden "
-                    style={{
-                        backgroundColor: "hsl(var(--background))",
-                        borderColor: "hsl(var(--border))",
-                    }}
-                >
-                    <motion.article
-                        whileHover={{ y: -6 }}
-                        transition={{ type: "spring", stiffness: 120 }}
-                        className="group"
+                        className=" border-2 rounded-3xl overflow-hidden "
+                        style={{
+                            backgroundColor: "hsl(var(--background))",
+                            borderColor: "hsl(var(--border))",
+                        }}
                     >
-                        <Link href="#" className="block">
-                            <div className="grid lg:grid-cols-2">
-                                {/* Image */}
-                                <div className="relative h-64 lg:h-full overflow-hidden">
-                                    <img
-                                        src={featuredPost.image}
-                                        alt={featuredPost.title}
-                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
+                        <motion.article
+                            whileHover={!isMobile ? { y: -6 } : undefined}
+                            whileTap={isMobile ? { scale: 0.98 } : undefined}
 
-                                    {/* Gradient overlay */}
-                                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
 
-                                    <span
-                                        className="absolute top-4 left-4 px-3 py-1 text-xs font-semibold rounded-full"
-                                        style={{
-                                            backgroundColor: "hsl(var(--primary))",
-                                            color: "hsl(var(--primary-foreground))",
-                                        }}
-                                    >
-                                        Featured
-                                    </span>
-                                </div>
 
-                                {/* Content */}
-                                <div className="p-8 lg:p-12 flex flex-col justify-between">
-                                    <div>
-                                        <div
-                                            className="flex flex-wrap items-center gap-4 mb-4 text-sm"
-                                            style={{ color: "hsl(var(--muted-foreground))" }}
-                                        >
-                                            <span className="px-3 py-1 rounded-full border">
-                                                {featuredPost.category}
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <FaCalendar /> {featuredPost.date}
-                                            </span>
-                                            <span className="flex items-center gap-1">
-                                                <FaClock /> {featuredPost.readTime}
-                                            </span>
-                                        </div>
+                            // transition={{ type: "spring", stiffness: 120 }}
+                            className="group"
+                        >
+                            <Link href="#" className="block">
+                                <div className="grid lg:grid-cols-2">
+                                    {/* Image */}
+                                    <div className="relative h-64 lg:h-full overflow-hidden">
+                                        <img
+                                            src={featuredPost.image}
+                                            alt={featuredPost.title}
+                                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
 
-                                        <h2
-                                            className="text-2xl lg:text-3xl font-bold mb-4 transition-colors group-hover:text-primary"
-                                            style={{ color: "hsl(var(--foreground))" }}
-                                        >
-                                            {featuredPost.title}
-                                        </h2>
-
-                                        <p
-                                            className="mb-6 leading-relaxed"
-                                            style={{ color: "hsl(var(--muted-foreground))" }}
-                                        >
-                                            {featuredPost.excerpt}
-                                        </p>
-                                    </div>
-
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <div
-                                                className="w-10 h-10 rounded-full flex items-center justify-center"
-                                                style={{
-                                                    backgroundColor: "hsl(var(--primary) / 15%)",
-                                                }}
-                                            >
-                                                <FaUser style={{ color: "hsl(var(--primary))" }} />
-                                            </div>
-                                            <span
-                                                className="font-medium"
-                                                style={{ color: "hsl(var(--foreground))" }}
-                                            >
-                                                {featuredPost.author}
-                                            </span>
-                                        </div>
+                                        {/* Gradient overlay */}
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
 
                                         <span
-                                            className="flex items-center gap-2 font-semibold"
-                                            style={{ color: "hsl(var(--primary))" }}
+                                            className="absolute top-4 left-4 px-3 py-1 text-xs font-semibold rounded-full"
+                                            style={{
+                                                backgroundColor: "hsl(var(--primary))",
+                                                color: "hsl(var(--primary-foreground))",
+                                            }}
                                         >
-                                            Read Article <FaArrowRight />
+                                            Featured
                                         </span>
                                     </div>
+
+                                    {/* Content */}
+                                    <div className="p-8 lg:p-12 flex flex-col justify-between">
+                                        <div>
+                                            <div
+                                                className="flex flex-wrap items-center gap-4 mb-4 text-sm"
+                                                style={{ color: "hsl(var(--muted-foreground))" }}
+                                            >
+                                                <span className="px-3 py-1 rounded-full border">
+                                                    {featuredPost.category}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <FaCalendar /> {featuredPost.date}
+                                                </span>
+                                                <span className="flex items-center gap-1">
+                                                    <FaClock /> {featuredPost.readTime}
+                                                </span>
+                                            </div>
+
+                                            <h2
+                                                className="text-2xl lg:text-3xl font-bold mb-4 transition-colors group-hover:text-primary"
+                                                style={{ color: "hsl(var(--foreground))" }}
+                                            >
+                                                {featuredPost.title}
+                                            </h2>
+
+                                            <p
+                                                className="mb-6 leading-relaxed"
+                                                style={{ color: "hsl(var(--muted-foreground))" }}
+                                            >
+                                                {featuredPost.excerpt}
+                                            </p>
+                                        </div>
+
+                                        <div className="flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
+                                                <div
+                                                    className="w-10 h-10 rounded-full flex items-center justify-center"
+                                                    style={{
+                                                        backgroundColor: "hsl(var(--primary) / 15%)",
+                                                    }}
+                                                >
+                                                    <FaUser style={{ color: "hsl(var(--primary))" }} />
+                                                </div>
+                                                <span
+                                                    className="font-medium"
+                                                    style={{ color: "hsl(var(--foreground))" }}
+                                                >
+                                                    {featuredPost.author}
+                                                </span>
+                                            </div>
+
+                                            <span
+                                                className="flex items-center gap-2 font-semibold"
+                                                style={{ color: "hsl(var(--primary))" }}
+                                            >
+                                                Read Article <FaArrowRight />
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    </motion.article>
-                </section>
+                            </Link>
+                        </motion.article>
+                    </section>
                 </main>
 
 
