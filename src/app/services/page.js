@@ -92,7 +92,7 @@ const page = () => {
             <div className="mx-auto max-w-6xl mt-24 pt-8">
 
                 <motion.div
-                    className="mb-16 text-center"
+                    className="mb-16 text-center px-10 lg:px-0"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -123,7 +123,7 @@ const page = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 px-10 lg:px-0"
                 >
                     {features.map((feature) => {
                         const IconComponent = feature.icon;
@@ -212,7 +212,7 @@ const page = () => {
                  style={{ backgroundColor: "hsl(var(--background))" }}
                 className="">
                 <motion.div
-                    className=" text-center py-20"
+                    className=" text-center py-20 px-10 lg:px-0"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

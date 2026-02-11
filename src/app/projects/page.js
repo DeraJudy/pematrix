@@ -74,7 +74,7 @@ const page = () => {
         <div
           className="mx-auto max-w-6xl ">
           <motion.div
-            className="mb-16 text-center"
+            className="mb-16 text-center px-10 lg:px-0"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.6 }}
@@ -102,7 +102,7 @@ const page = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-3 mb-12"
+            className="flex flex-wrap justify-center gap-3 mb-12 px-10 lg:px-0"
           >
             {categories.map((category) => {
               const isActive = activeCategory === category;
@@ -128,7 +128,7 @@ const page = () => {
 
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-10 lg:px-0">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}
@@ -236,7 +236,7 @@ const page = () => {
         style={{ backgroundColor: "hsl(var(--background))" }}
         className="mx-auto max-w-6xl myheight">
         <motion.div
-          className="mb-16 text-center"
+          className="mb-16 text-center px-10 lg:px-0"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
