@@ -89,7 +89,7 @@ const page = () => {
                 className="mx-auto max-w-6xl pb-18"
             >
                 <motion.div
-                    className="mb-16 text-center"
+                    className="mb-16 text-center px-10 lg:px-0"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.6 }}
@@ -113,9 +113,9 @@ const page = () => {
                 </motion.div>
 
                 {/* Featured Post */}
-                {/* Featured Post */}
-                <section
-                    className="px-6 border-2 rounded-3xl overflow-hidden"
+                <main className="px-10 lg:px-0">
+                    <section
+                    className=" border-2 rounded-3xl overflow-hidden "
                     style={{
                         backgroundColor: "hsl(var(--background))",
                         borderColor: "hsl(var(--border))",
@@ -213,6 +213,7 @@ const page = () => {
                         </Link>
                     </motion.article>
                 </section>
+                </main>
 
 
                 {/* Category Filter */}
@@ -220,7 +221,7 @@ const page = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="flex flex-wrap justify-center gap-3 mb-12 mt-10"
+                    className="flex flex-wrap justify-center gap-3 mb-12 mt-10 px-10 lg:px-0"
                 >
                     {categories.map((category) => {
                         const isActive = activeCategory === category;
@@ -249,7 +250,7 @@ const page = () => {
                 {/* Blog Posts Grid */}
                 <section className="section-padding pt-0">
                     <div className="container-max">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-10 lg:px-0">
                             {filteredblogPosts.map((post, index) => (
                                 <motion.article
                                     key={index}
@@ -369,7 +370,7 @@ const page = () => {
                     backgroundColor: "hsl(var(--background))",
                 }}
                 className=" py-14">
-                <div className=" text-center">
+                <div className=" text-center px-10 lg:px-0">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

@@ -34,7 +34,7 @@ const Footer = () => {
       }}
       className="pt-16 pb-8 border-t-2 w-full px-4 md:px-12 sm:px-20 lg:px-8 py-4">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16 px-8 sm:px-0">
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#" className="inline-block mb-4">
