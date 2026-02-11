@@ -62,6 +62,25 @@ const itemVariants = {
 };
 
 
+const headerVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.9,
+    filter: "blur(10px)",
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+
+
 const WhyUs = () => {
     return (
         <section
@@ -70,7 +89,13 @@ const WhyUs = () => {
         >
             <div className="mx-auto max-w-6xl">
 
-                <div className="mb-16 text-center">
+                <motion.div
+                    className="mb-16 text-center"
+                    variants={headerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.6 }}
+                >
                     <p
                         style={{ color: "hsl(var(--primary))" }}
                         className="mb-2 text-sm font-medium uppercase tracking-wider"
@@ -92,7 +117,8 @@ const WhyUs = () => {
                     >
                         We combine technical excellence with strategic thinking to deliver solutions that make a real difference.
                     </p>
-                </div>
+                </motion.div>
+
 
 
                 {/* Features Grid */}

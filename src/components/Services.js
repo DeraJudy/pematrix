@@ -145,10 +145,7 @@ const Services = () => {
         {/* SERVICES GRID — STRONG SCROLL MOTION */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 gap-8 perspective-distant"
-          variants={gridVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.25 }}
+          
         >
           {services.map((service, index) => {
             const Icon = service.icon;
