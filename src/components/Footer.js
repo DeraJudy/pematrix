@@ -2,20 +2,20 @@ import React from 'react'
 import { FaTwitter, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
 
 const footerLinks = {
-  company: [
-    { name: "About", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Blog", href: "#" },
+  Links: [
+    { name: "About", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
   ],
-  services: [
-    { name: "Web Development", href: "#services" },
-    { name: "Product Design", href: "#services" },
-    { name: "Cloud Solutions", href: "#services" },
+  OtherLinks: [
+    { name: "Contact", href: "/contact" },
+    { name: "Projects", href: "/projects" },
+    { name: "Team", href: "/team" },
   ],
   legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
-    { name: "Cookies", href: "#" },
+    { name: "Privacy", href: "/privacy" },
+    { name: "Terms", href: "/terms" },
+    { name: "Cookies", href: "cookies" },
   ],
 };
 
@@ -63,9 +63,9 @@ const Footer = () => {
               style={{
                 color: "hsl(var(--secondary-foreground))",
               }}
-              className="font-display font-semibold text-lg">Company</h4>
+              className="font-display font-semibold text-lg">Links</h4>
             <ul className="space-y-3 mt-4">
-              {footerLinks.company.map((link) => (
+              {footerLinks.Links.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
@@ -86,9 +86,9 @@ const Footer = () => {
               style={{
                 color: "hsl(var(--secondary-foreground))",
               }}
-              className="font-semibold text-lg mb-4">Services</h4>
+              className="font-semibold text-lg mb-4">Other Links</h4>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
+              {footerLinks.OtherLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
