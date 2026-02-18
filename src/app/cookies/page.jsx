@@ -99,46 +99,73 @@ export default function CookiesPage() {
         </div>
 
         <div className="space-y-6">
-                {sections.map((section, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="glass-card p-8"
-                  >
-                    <h2 className="font-display text-xl font-semibold text-foreground mb-4">
-                      {section.title}
-                    </h2>
-                    {section.content && (
-                      <p className="text-muted-foreground leading-relaxed">
-                        {section.content}
-                      </p>
-                    )}
-                    {section.items && (
-                      <div className="space-y-3">
-                        {section.items.map((item, i) => (
-                          <div
-                            key={i}
-                            className="flex gap-3 p-3 rounded-xl bg-secondary/50"
-                          >
-                            <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
-                            <div>
-                              <span className="font-medium text-foreground">
-                                {item.name}:
-                              </span>{" "}
-                              <span className="text-muted-foreground">
-                                {item.desc}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
+          {sections.map((section, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="rounded-2xl border p-8"
+              style={{
+                backgroundColor: "hsl(var(--card))",
+                borderColor: "hsl(var(--border))"
+              }}
+            >
+              <h2
+                style={{
+                  color: "hsl(var(--foreground))",
+                }}
+                className="font-display text-xl font-semibold mb-4">
+                {section.title}
+              </h2>
+              {section.content && (
+                <p
+                  style={{
+                    color: "hsl(var(--muted-foreground))",
+                  }}
+                  className="text-muted-foreground leading-relaxed">
+                  {section.content}
+                </p>
+              )}
+              {section.items && (
+                <div className="space-y-3">
+                  {section.items.map((item, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        backgroundColor: "hsl(var(--secondary) / 50%)"
+                      }}
+                      className="flex gap-3 p-3 rounded-xl bg-secondary/50"
+                    >
+                      <div 
+                        style={{
+                          backgroundColor: "hsl(var(--primary))"
+                        }}
+                        className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                      <div>
+                        <span
+                          style={{
+                            color: "hsl(var(--foreground))",
+                          }}
+                          className="font-medium text-foreground">
+                          {item.name}:
+                        </span>{" "}
+                        <span 
+                          style={{
+                            color: "hsl(var(--muted-foreground))",
+                          }}
+                          className="text-muted-foreground">
+                          {item.desc}
+                        </span>
                       </div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   )
