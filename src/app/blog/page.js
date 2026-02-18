@@ -126,7 +126,7 @@ const page = () => {
                             transition={{ type: "spring", stiffness: 120 }}
                             className="group"
                         >
-                            <Link href="#" className="block">
+                            <Link href={`/blog/posts/${featuredPost.slug}`} className="block">
                                 <div className="grid lg:grid-cols-2">
                                     {/* Image */}
                                     <div className="relative h-64 lg:h-full overflow-hidden">
@@ -199,6 +199,7 @@ const page = () => {
                                                     {featuredPost.author}
                                                 </span>
                                             </div>
+
 
                                             <span
                                                 className="flex items-center gap-2 font-semibold text-sm sm:text-base transition-transform sm:hover:translate-x-1"
@@ -319,7 +320,7 @@ const page = () => {
                                                     color: "hsl(var(--muted-foreground))",
                                                 }}
                                                 className="text-sm text-muted-foreground">{post.author}</span>
-                                            <motion.a
+                                            {/* <motion.a
                                                 href="#"
                                                 whileHover={{ x: 5 }}
                                                 className="flex items-center gap-1 text-primary text-sm font-medium"
@@ -328,7 +329,17 @@ const page = () => {
                                                 }}
                                             >
                                                 Read <FaArrowRight className="w-3.5 h-3.5" />
-                                            </motion.a>
+                                            </motion.a> */}
+                                            <Link href={`/blog/posts/${post.slug}`}
+                                                className="flex items-center gap-1 text-sm font-medium"
+                                                style={{ color: "hsl(var(--primary))" }}>
+
+                                                <motion.span whileHover={{ x: 5 }} className="flex items-center gap-1">
+                                                    Read <FaArrowRight className="w-3.5 h-3.5" />
+                                                </motion.span>
+
+                                            </Link>
+
                                         </div>
                                     </div>
                                 </motion.article>
