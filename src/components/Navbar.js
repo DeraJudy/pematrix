@@ -80,18 +80,18 @@ export default function Navbar() {
 
             {/* DESKTOP CTA */}
             <Link
-              href="#cta"
+              href="/login"
               style={{
                 backgroundColor: "hsl(var(--primary))",
                 color: "hsl(var(--secondary))",
               }}
               className="
                 hidden md:inline-flex
-                px-5 py-3 rounded-xl
+                px-9 py-1.5 rounded-xl
                 font-bold
               "
             >
-              Get Started
+              Login
             </Link>
           </div>
         </nav>
@@ -148,7 +148,7 @@ export default function Navbar() {
 
                 {/* CTA */}
                 <Link
-                  href="#cta"
+                  href="/login"
                   onClick={() => setMobileOpen(false)}
                   style={{
                     backgroundColor: "hsl(var(--primary))",
@@ -156,11 +156,11 @@ export default function Navbar() {
                   }}
                   className="
                     w-full text-center
-                    px-5 py-4 rounded-xl
+                    px-7 py-3 rounded-xl
                     font-bold
                   "
                 >
-                  Get Started
+                  Login
                 </Link>
               </div>
             </motion.div>

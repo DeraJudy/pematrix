@@ -1,9 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import Navbar from "@/components/Navbar";
 import MouseGlow from "@/components/Mouse";
-import Footer from "@/components/Footer";
+// import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,10 +36,7 @@ export default function RootLayout({ children }) {
         >
 
           <MouseGlow />
-          <Navbar />
-          {/* <Noise /> */}
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

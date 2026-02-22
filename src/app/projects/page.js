@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const projects = [
   {
@@ -70,6 +72,8 @@ const page = () => {
       className=" "
 
     >
+      <Navbar />
+      
       <div className="relative pt-56 pb-18" style={{ backgroundColor: "hsl(var(--secondary))" }}>
         <div
           className="mx-auto max-w-6xl ">
@@ -274,6 +278,8 @@ const page = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      <Footer />
     </main>
   )
 }

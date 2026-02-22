@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaFile } from 'react-icons/fa';
+import Navbar from "@/components/Navbar";
 
 const sections = [
   {
@@ -44,6 +45,9 @@ const sections = [
 export default function TermsPage() {
   return (
     <div className=" relative">
+
+      <Navbar />
+
       <div className="mx-auto max-w-6xl mt-40 lg:mt-56 py-8">
         <div>
           <motion.div
@@ -119,6 +123,8 @@ export default function TermsPage() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </div>
   )
 }

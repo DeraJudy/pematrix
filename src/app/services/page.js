@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaCloud, FaCode, FaDatabase, FaDotCircle, FaPalette, FaShieldAlt, } from "react-icons/fa";
 import { FiCheck, FiSmartphone, FiTrendingUp, FiZap, } from "react-icons/fi";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const features = [
     {
@@ -88,6 +90,8 @@ const page = () => {
                 backgroundColor: "hsl(var(--secondary))",
             }}
         className="relative pt-28 ">
+
+            <Navbar />
 
             <div className="mx-auto max-w-6xl mt-24 pt-8">
 
@@ -245,7 +249,7 @@ const page = () => {
                 </motion.div>
             </div>
 
-
+            <Footer />
         </main>
     )
 }

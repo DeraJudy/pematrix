@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaCalendar, FaClock, FaUser } from "react-icons/fa";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const featuredPost = {
     title: "The Future of AI in Enterprise Software Development",
@@ -85,6 +87,9 @@ const page = () => {
 
     return (
         <div className="relative pt-56 " style={{ backgroundColor: "hsl(var(--secondary))" }} >
+
+            <Navbar />
+
             <div
                 className="mx-auto max-w-6xl pb-18"
             >
@@ -430,6 +435,8 @@ const page = () => {
                     </motion.div>
                 </div>
             </section>
+
+            <Footer />
         </div>
     )
 }

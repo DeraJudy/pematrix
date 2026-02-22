@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaShieldAlt } from 'react-icons/fa';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 
 const sections = [
@@ -41,6 +43,8 @@ const sections = [
 export default function PrivacyPage() {
     return (
         <div className=" relative">
+
+            <Navbar />
             <div className="mx-auto max-w-6xl mt-40 lg:mt-56 py-8">
                 <div>
                     <motion.div
@@ -116,6 +120,8 @@ export default function PrivacyPage() {
                     ))}
                 </div>
             </div>
+            
+            <Footer />
         </div>
     );
 }

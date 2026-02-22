@@ -8,6 +8,8 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { FiSend } from "react-icons/fi";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const MotionDiv = motion.create("div");
 
@@ -88,6 +90,8 @@ export default function Page() {
 
   return (
     <main className="relative py-28 px-6 bg-secondary">
+
+      <Navbar />
 
       <div className="mx-auto max-w-6xl mt-24 pt-8">
         <motion.div
@@ -394,6 +398,8 @@ export default function Page() {
           </motion.div>
         </div>
       </div>
+
+      <Footer />
     </main>
   );
 }

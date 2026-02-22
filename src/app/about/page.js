@@ -2,6 +2,8 @@
 import { FaAward, FaEye } from "react-icons/fa";
 import { FiHeart, FiTarget } from "react-icons/fi";
 import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const values = [
   {
@@ -33,6 +35,8 @@ const values = [
 export default function About() {
   return (
     <section className="overflow-hidden">
+
+      <Navbar />
 
       {/* About Section */}
       <div className="flex justify-center items-center py-24 md:py-32 px-6">
@@ -199,6 +203,8 @@ export default function About() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </section>
   );
 }
