@@ -89,7 +89,7 @@ export default function Page() {
   };
 
   return (
-    <main className="relative py-28 px-6 bg-secondary">
+    <main className="relative pt-28  bg-secondary">
 
       <Navbar />
 
