@@ -1,13 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { FaArrowCircleLeft, FaShieldAlt } from "react-icons/fa";
-import { FiEye, FiEyeOff, FiCpu, FiGlobe, FiLogIn } from "react-icons/fi";
+import { FaArrowCircleLeft, FaCode, FaShieldAlt } from "react-icons/fa";
+import { FiEye, FiEyeOff, FiCpu, FiGlobe, FiLogIn, FiLock, FiUserPlus } from "react-icons/fi";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 
+export default function Register() {
 
-export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [isFocused, setIsFocused] = useState(false);
 
@@ -24,21 +24,22 @@ export default function LoginPage() {
         return () => window.removeEventListener("resize", checkScreen);
     }, []);
 
+
     return (
         <main
             style={{
                 backgroundColor: "hsl(var(--background))",
             }}
-            className="min-h-screen flex ">
-
+            className="min-h-screen flex "
+        >
             {/* Left Side */}
             <div
                 className="hidden sm:flex lg:w-1/2 relative overflow-hidden bg-linear-to-br from-blue-500/20 via-background 
-                to-blue-500/10 items-center justify-center">
+                            to-blue-500/10 items-center justify-center">
 
                 <div className="absolute inset-0 opacity-10" style={{
                     backgroundImage: `linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px), linear-gradient(90deg, 
-                    hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
+                                hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
                     backgroundSize: '40px 40px',
                 }} />
 
@@ -50,7 +51,7 @@ export default function LoginPage() {
                         }}
                         className="w-12 h-12 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
                     >
-                        <FaShieldAlt
+                        <FaCode
                             style={{
                                 color: "hsl(var(--primary))",
                             }}
@@ -66,7 +67,7 @@ export default function LoginPage() {
                             }}
                             className="w-12 h-12 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
                         >
-                            <FiCpu
+                            <FiLock
                                 style={{
                                     color: "hsl(var(--primary))",
                                 }}
@@ -94,13 +95,13 @@ export default function LoginPage() {
                             style={{
                                 color: "hsl(var(--primary))",
                             }}
-                            className="text-3xl font-bold font-display gradient-text">Secure Access</h2>
+                            className="text-3xl font-bold font-display gradient-text">Join the Team</h2>
                         <p
                             style={{
                                 color: "hsl(var(--muted-foreground))",
                             }}
                             className=" mt-3 max-w-sm leading-relaxed">
-                            Enterprise-grade security. Manage your digital assets with confidence.
+                            Start creating powerful content with our cutting-edge platform.
                         </p>
                     </div>
 
@@ -120,10 +121,10 @@ export default function LoginPage() {
                             <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
                             <span className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
                         </div>
-                        <p><span className="text-primary">const</span> auth = <span className="text-primary">await</span> verify();</p>
-                        <p><span className="text-primary">if</span> (auth.valid) {"{"}</p>
-                        <p className="pl-4">redirect(<span className="text-green-400">'/dashboard'</span>);</p>
-                        <p>{"}"}</p>
+                        <p>$ pematrix <span className="text-primary">init</span> --user</p>
+                        <p className="text-green-400">✓ Account created</p>
+                        <p className="text-green-400">✓ Dashboard ready</p>
+                        <p className="mt-1">$ pematrix <span className="text-primary">start</span> <span className="animate-pulse">▊</span></p>
                     </motion.div>
 
                     {/* Glowing orbs */}
@@ -205,13 +206,44 @@ export default function LoginPage() {
                                 color: "hsl(var(--muted-foreground))",
                             }}
                             className=" mt-2">
-                            Sign in to your dashboard
+                            Create your account
                         </p>
                     </div>
 
                     <form>
 
-                        {/* Email */}
+                        <div className="space-y-2 mt-5">
+                            <label
+                                htmlFor="name"
+                                style={{ color: "hsl(var(--foreground))" }}
+                                className="text-sm lg:text-lg font-medium"
+                            >
+                                Full Name
+                            </label>
+
+                            <input
+                                id="name"
+                                type="text"
+                                placeholder="John Doe"
+                                required
+                                onFocus={() => setIsFocused(true)}
+                                onBlur={() => setIsFocused(false)}
+                                style={{
+                                    backgroundColor: "hsl(var(--background))",
+                                    color: "hsl(var(--foreground))",
+                                    border: `1px solid ${isFocused
+                                        ? "hsl(var(--primary))"
+                                        : "hsl(var(--border))"
+                                        }`,
+                                    boxShadow: isFocused
+                                        ? "0 0 0 2px hsl(var(--primary) / 0.20)"
+                                        : "none",
+                                }}
+                                className="w-full h-11 px-4 rounded-lg border outline-none transition-all
+                                    focus:border-primary focus:ring-2 focus:ring-primary/20 mt-3"
+                            />
+                        </div>
+
                         <div className="space-y-2 mt-5">
                             <label
                                 htmlFor="email"
@@ -280,7 +312,53 @@ export default function LoginPage() {
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
                                     className="absolute right-3 top-1/2 -translate-y-1/2 
-                   text-muted-foreground hover:text-foreground transition-colors"
+                                    text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    {showPassword ? (
+                                        <FiEyeOff className="w-4 h-4" />
+                                    ) : (
+                                        <FiEye className="w-4 h-4" />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="space-y-2 mt-7">
+                            <label
+                                htmlFor="password"
+                                style={{ color: "hsl(var(--foreground))" }}
+                                className="text-sm lg:text-lg font-medium"
+                            >
+                                Confirm Password
+                            </label>
+
+                            <div className="relative mt-3">
+                                <input
+                                    id="password"
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="••••••••"
+                                    required
+                                    onFocus={() => setIsFocused(true)}
+                                    onBlur={() => setIsFocused(false)}
+                                    style={{
+                                        backgroundColor: "hsl(var(--background))",
+                                        color: "hsl(var(--foreground))",
+                                        border: `1px solid ${isFocused
+                                            ? "hsl(var(--primary))"
+                                            : "hsl(var(--border))"
+                                            }`,
+                                        boxShadow: isFocused
+                                            ? "0 0 0 2px hsl(var(--primary) / 0.20)"
+                                            : "none",
+                                    }}
+                                    className="w-full h-11 px-4 pr-10 rounded-lg outline-none transition-all duration-200"
+                                />
+
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 
+                                    text-muted-foreground hover:text-foreground transition-colors"
                                 >
                                     {showPassword ? (
                                         <FiEyeOff className="w-4 h-4" />
@@ -302,7 +380,7 @@ export default function LoginPage() {
                             className="w-full h-11 mt-7 rounded-lg flex items-center justify-center border
                                 gap-2 font-medium transition-all hover:opacity-90 active:scale-[0.98] shadow-md"
                         >
-                            <FiLogIn className="w-4 h-4" />
+                            <FiUserPlus className="w-4 h-4" />
                             Sign In
                         </button>
 
@@ -313,13 +391,13 @@ export default function LoginPage() {
                             color: "hsl(var(--muted-foreground))",
                         }}
                         className="text-center text-sm text-muted-foreground mt-6">
-                        Don't have an account?{" "}
-                        <Link href="/register"
+                        Already have an account?{" "}
+                        <Link href="/login"
                             style={{
                                 color: "hsl(var(--primary))",
                             }}
                             className=" hover:underline font-medium">
-                            Register
+                            Sign In
                         </Link>
                     </p>
 
@@ -327,7 +405,6 @@ export default function LoginPage() {
 
                 </motion.div>
             </div>
-
 
         </main>
     )
