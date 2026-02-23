@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowCircleLeft, FaShieldAlt } from "react-icons/fa";
 import { FiEye, FiEyeOff, FiCpu, FiGlobe, FiLogIn } from "react-icons/fi";
 import Link from "next/link";
@@ -9,6 +9,20 @@ import { motion } from "framer-motion";
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
+
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+useEffect(() => {
+    const checkScreen = () => {
+        setIsSmallScreen(window.innerWidth < 640);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+}, []);
 
     return (
         <main
@@ -34,13 +48,13 @@ export default function LoginPage() {
                             backgroundColor: "hsl(var(--primary) /10%)",
                             borderColor: "hsl(var(--primary) /20%)",
                         }}
-                        className="w-16 h-16 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
+                        className="w-12 h-12 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
                     >
                         <FaShieldAlt
                             style={{
                                 color: "hsl(var(--primary))",
                             }}
-                            className="w-12 h-12"
+                            className="w-8 h-8"
                         />
                     </div>
 
@@ -50,13 +64,13 @@ export default function LoginPage() {
                                 backgroundColor: "hsl(var(--primary) /10%)",
                                 borderColor: "hsl(var(--primary) /20%)",
                             }}
-                            className="w-16 h-16 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
+                            className="w-12 h-12 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
                         >
                             <FiCpu
                                 style={{
                                     color: "hsl(var(--primary))",
                                 }}
-                                className="w-12 h-12"
+                                className="w-8 h-8"
                             />
                         </div>
                         <div
@@ -64,13 +78,13 @@ export default function LoginPage() {
                                 backgroundColor: "hsl(var(--primary) /10%)",
                                 borderColor: "hsl(var(--primary) /20%)",
                             }}
-                            className="w-16 h-16 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
+                            className="w-12 h-12 rounded-xl border flex items-center justify-center animate-bounce [animation-duration:2s]"
                         >
                             <FiGlobe
                                 style={{
                                     color: "hsl(var(--primary))",
                                 }}
-                                className=" w-12 h-12"
+                                className=" w-8 h-8"
                             />
                         </div>
                     </div>
@@ -146,96 +160,207 @@ export default function LoginPage() {
             </div>
 
             {/* Right Side */}
-            <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12">
+            <div className="w-full lg:w-1/2 flex items-center justify-center px-12 py-12">
+                {/* <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{
+                        opacity: 1,
+                        y: 0,
+                        ...(isMobile
+                            ? {}
+                            : {
+                                boxShadow: [
+                                    "0 10px 30px hsl(var(--primary) / 0.10)",
+                                    "0 15px 40px hsl(var(--primary) / 0.25)",
+                                    "0 10px 30px hsl(var(--primary) / 0.10)",
+                                ],
+                                borderColor: [
+                                    "hsl(var(--primary) / 0.20)",
+                                    "hsl(var(--primary) / 0.45)",
+                                    "hsl(var(--primary) / 0.20)",
+                                ],
+                            }),
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: isMobile ? 0 : Infinity,
+                        ease: "easeInOut",
+                    }}
+                    className="mb-8 rounded-2xl py-10 border px-6 sm:px-20"
+                    style={
+                        isMobile
+                            ? {
+                                backgroundColor: "hsl(var(--secondary))",
+                                borderColor: "hsl(var(--border))",
+                            }
+                            : {
+                                backgroundColor: "hsl(var(--secondary))",
+                                borderColor: "hsl(var(--primary) / 0.25)",
+                                boxShadow: "0 10px 30px hsl(var(--primary) / 0.15)",
+                            }
+                    }
+                > */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="w-full max-w-md"
-                >
-                    <div
-                        style={{
-                            backgroundColor: "hsl(var(--secondary))",
-                            borderColor: "hsl(var(--border))",
-                        }}
-                        className=" mb-8 border rounded-2xl px-6 py-10"
-                    >
+                    transition={{ duration: 0.5 }}
+                    // className="mb-8 rounded-2xl py-10 border w-1/2 px-6 "
+                    className="mb-8 rounded-2xl py-10 border-2 w-full lg:w-1/2 px-10"
+                    style={{
+                        backgroundColor: "hsl(var(--secondary))",
 
-                        <Link
-                            href="/"
+                        borderColor: isSmallScreen
+                            ? "hsl(var(--primary) / 0.25)"
+                            : "hsl(var(--border))",
+
+                        boxShadow: isSmallScreen
+                            ? "0 10px 30px hsl(var(--primary) / 0.15)"
+                            : "none",
+                    }}
+                >
+
+                    <Link
+                        href="/"
+                        style={{
+                            color: "hsl(var(--muted-foreground))",
+                        }}
+                        className="inline-flex items-center gap-1 text-sm transition-colors mb-8"
+                    >
+                        <FaArrowCircleLeft className="w-4 h-4" />
+                        Back to Home
+                    </Link>
+
+                    <div className="text-center mb-8">
+                        <h1
+                            style={{
+                                color: "hsl(var(--primary))",
+                            }}
+                            className="text-3xl lg:text-4xl font-bold">
+                            Pematrix
+                        </h1>
+                        <p
                             style={{
                                 color: "hsl(var(--muted-foreground))",
                             }}
-                            className="inline-flex items-center gap-1 text-sm transition-colors mb-6"
-                        >
-                            <FaArrowCircleLeft className="w-4 h-4" />
-                            Back to Home
-                        </Link>
+                            className=" mt-2">
+                            Sign in to your dashboard
+                        </p>
+                    </div>
 
-                        <div className="text-center mb-8">
-                            <h1
+                    <form>
+
+                        {/* Email */}
+                        <div className="space-y-2 mt-5">
+                            <label
+                                htmlFor="email"
+                                style={{ color: "hsl(var(--foreground))" }}
+                                className="text-sm lg:text-lg font-medium"
+                            >
+                                Email
+                            </label>
+
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="you@email.com"
+                                required
+                                onFocus={() => setIsFocused(true)}
+                                onBlur={() => setIsFocused(false)}
                                 style={{
-                                    color: "hsl(var(--primary))",
+                                    backgroundColor: "hsl(var(--background))",
+                                    color: "hsl(var(--foreground))",
+                                    border: `1px solid ${isFocused
+                                        ? "hsl(var(--primary))"
+                                        : "hsl(var(--border))"
+                                        }`,
+                                    boxShadow: isFocused
+                                        ? "0 0 0 2px hsl(var(--primary) / 0.20)"
+                                        : "none",
                                 }}
-                                className="text-3xl font-bold">
-                                Pematrix
-                            </h1>
-                            <p
-                                style={{
-                                    color: "hsl(var(--muted-foreground))",
-                                }}
-                                className=" mt-2">
-                                Sign in to your dashboard
-                            </p>
+                                className="w-full h-11 px-4 rounded-lg border outline-none transition-all
+                                    focus:border-primary focus:ring-2 focus:ring-primary/20 mt-3"
+                            />
                         </div>
 
-                        <form>
-
-                            <div className="space-y-2">
-                                <label htmlFor="email">Email</label>
-                                <input
-                                    id="email"
-                                    type="email"
-                                    placeholder="you@email.com"
-                                    required
-                                />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label htmlFor="password">Password</label>
-
-                                <div className="relative">
-                                    <input
-                                        id="password"
-                                        type={showPassword ? "text" : "password"}
-                                        placeholder="••••••••"
-                                        required
-                                        className="pr-10"
-                                    />
-
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {showPassword ? (
-                                            <FiEyeOff className="w-4 h-4" />
-                                        ) : (
-                                            <FiEye className="w-4 h-4" />
-                                        )}
-                                    </button>
-                                </div>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="w-full gradient-button"
+                        {/* Password */}
+                        <div className="space-y-2 mt-7">
+                            <label
+                                htmlFor="password"
+                                style={{ color: "hsl(var(--foreground))" }}
+                                className="text-sm lg:text-lg font-medium"
                             >
-                                <FiLogIn className="w-4 h-4 mr-2" />
-                                Sign In
-                            </button>
+                                Password
+                            </label>
 
-                        </form>
-                    </div>
+                            <div className="relative mt-3">
+                                <input
+                                    id="password"
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder="••••••••"
+                                    required
+                                    onFocus={() => setIsFocused(true)}
+                                    onBlur={() => setIsFocused(false)}
+                                    style={{
+                                        backgroundColor: "hsl(var(--background))",
+                                        color: "hsl(var(--foreground))",
+                                        border: `1px solid ${isFocused
+                                            ? "hsl(var(--primary))"
+                                            : "hsl(var(--border))"
+                                            }`,
+                                        boxShadow: isFocused
+                                            ? "0 0 0 2px hsl(var(--primary) / 0.20)"
+                                            : "none",
+                                    }}
+                                    className="w-full h-11 px-4 pr-10 rounded-lg outline-none transition-all duration-200"
+                                />
+
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 
+                   text-muted-foreground hover:text-foreground transition-colors"
+                                >
+                                    {showPassword ? (
+                                        <FiEyeOff className="w-4 h-4" />
+                                    ) : (
+                                        <FiEye className="w-4 h-4" />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Button */}
+                        <button
+                            type="submit"
+                            style={{
+                                backgroundColor: "hsl(var(--primary))",
+                                color: "hsl(var(--primary-foreground))",
+                                borderColor: "hsl(var(--border))",
+                            }}
+                            className="w-full h-11 mt-7 rounded-lg flex items-center justify-center border
+                                gap-2 font-medium transition-all hover:opacity-90 active:scale-[0.98] shadow-md"
+                        >
+                            <FiLogIn className="w-4 h-4" />
+                            Sign In
+                        </button>
+
+                    </form>
+
+                    <p
+                        style={{
+                            color: "hsl(var(--muted-foreground))",
+                        }}
+                        className="text-center text-sm text-muted-foreground mt-6">
+                        Don't have an account?{" "}
+                        <Link href="/register"
+                            style={{
+                                color: "hsl(var(--primary))",
+                            }}
+                            className=" hover:underline font-medium">
+                            Register
+                        </Link>
+                    </p>
+
 
 
                 </motion.div>
