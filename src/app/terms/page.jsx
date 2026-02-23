@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaFile } from 'react-icons/fa';
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const sections = [
   {
